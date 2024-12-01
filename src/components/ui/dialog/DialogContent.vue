@@ -40,8 +40,8 @@ interface Props {
   showAction?: boolean
   cancelText?: string
   actionText?: string
-  cancelVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
-  actionVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
+  cancelVariant?: 'default' | 'danger' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
+  actionVariant?: 'default' | 'danger' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
 }
 
 const props = withDefaults(defineProps<Props>(), {
