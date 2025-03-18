@@ -2,16 +2,15 @@
   <Sidebar v-model:collapsed="sidebarCollapsed">
     <!-- Header with responsive layout -->
     <template #header="{ collapsed }">
-      <div class="flex items-center gap-3" :class="{ 'justify-center w-full': collapsed }">
-        <!-- Logo - always visible -->
-        <div class="h-8 w-8 rounded bg-primary shrink-0 flex items-center justify-center text-base-100">0x</div>
-        
-        <!-- Organization text - only visible when expanded -->
-        <div v-if="!collapsed" class="min-w-0">
-          <div class="text-sm font-medium truncate">Test Dao</div>
-        </div>
-      </div>
-    </template>
+  <div class="h-8 w-8 rounded bg-primary shrink-0 flex items-center justify-center text-base-100">0x</div>
+  
+  <div 
+    class="ml-3 overflow-hidden transition-opacity duration-300"
+    :class="collapsed ? 'opacity-0 w-0' : 'opacity-100 w-auto'"
+  >
+    <div class="text-sm font-medium whitespace-nowrap">Test Dao</div>
+  </div>
+</template>
     
     <!-- Regular sidebar items -->
     <SidebarItem title="Dashboard" :icon="PhSquaresFour" href="/" />

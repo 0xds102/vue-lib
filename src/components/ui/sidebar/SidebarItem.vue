@@ -13,7 +13,7 @@
           :href="href" 
           :class="[
             'flex items-center text-sm rounded-md',
-            sidebarCollapsed ? 'justify-center w-12 h-12' : 'gap-3 px-3 py-2',
+            sidebarCollapsed ? 'justify-center mx-auto w-10 h-10' : 'gap-3 px-3 py-2',
             collapsible && !sidebarCollapsed ? 'pl-8 hover:text-primary transition-colors' : 'hover:bg-neutral/50',
             isActive ? (collapsible && !sidebarCollapsed ? 'text-primary font-medium' : 'bg-neutral/50 font-medium') : '',
           ]"
