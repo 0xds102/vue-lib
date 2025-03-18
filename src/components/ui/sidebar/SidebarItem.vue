@@ -27,15 +27,47 @@
 
       <!-- Standard Item -->
       <div v-else-if="!hasChildren" :class="{ 'px-2': true, 'my-1': true }">
+        <Tooltip 
+          v-if="sidebarCollapsed" 
+          :content="title" 
+          position="right" 
+          :delay="200"
+          :offset="8"
+          :boundary="{ left: 72 }"
+        >
+          <a 
+            :href="href" 
+            :class="[
+              'flex items-center text-sm rounded-md',
+              'justify-center mx-auto w-10 h-10',
+              collapsible ? 'hover:text-primary transition-colors' : 'hover:bg-neutral/50',
+              isActive ? (collapsible ? 'text-primary font-medium' : 'bg-neutral/50 font-medium') : '',
+            ]"
+          >
+            <!-- Icon with direct prop passing and conditional color -->
+            <component 
+              v-if="icon" 
+              :is="icon" 
+              :size="iconSize" 
+              :class="[
+                'shrink-0',
+                isActive ? 'text-primary' : 'text-neutral-content'
+              ]"
+            />
+            
+            <slot v-else-if="$slots.icon" name="icon"></slot>
+          </a>
+        </Tooltip>
+        
         <a 
+          v-else
           :href="href" 
           :class="[
             'flex items-center text-sm rounded-md',
-            sidebarCollapsed ? 'justify-center mx-auto w-10 h-10' : 'gap-3 px-3 py-2',
-            collapsible && !sidebarCollapsed ? 'pl-8 hover:text-primary transition-colors' : 'hover:bg-neutral/50',
-            isActive ? (collapsible && !sidebarCollapsed ? 'text-primary font-medium' : 'bg-neutral/50 font-medium') : '',
+            'gap-3 px-3 py-2',
+            collapsible ? 'pl-8 hover:text-primary transition-colors' : 'hover:bg-neutral/50',
+            isActive ? (collapsible ? 'text-primary font-medium' : 'bg-neutral/50 font-medium') : '',
           ]"
-          :title="sidebarCollapsed ? title : ''"
         >
           <!-- Icon with direct prop passing and conditional color -->
           <component 
@@ -50,8 +82,8 @@
           
           <slot v-else-if="$slots.icon" name="icon"></slot>
           
-          <span v-if="!sidebarCollapsed">{{ title }}</span>
-          <slot v-if="!sidebarCollapsed"></slot>
+          <span>{{ title }}</span>
+          <slot></slot>
         </a>
       </div>
 
@@ -60,25 +92,32 @@
         <!-- Use DropdownMenu when sidebar is collapsed -->
         <DropdownMenu v-if="sidebarCollapsed" position="right" :boundary="{ left: sidebarCollapsed ? 72 : 260 }">
           <template #trigger="{ toggle }">
-            <button 
-              @click="toggle"
-              :class="[
-                'flex items-center justify-center text-sm rounded-md w-10 h-10 mx-auto',
-                'hover:bg-neutral/50 transition-colors cursor-pointer', 
-                isActive ? 'bg-neutral/50 font-medium' : ''
-              ]"
-              :title="title"
+            <Tooltip 
+              :content="title" 
+              position="right" 
+              :delay="200"
+              :offset="8"
+              :boundary="{ left: 72 }"
             >
-              <component 
-                v-if="icon" 
-                :is="icon" 
-                :size="iconSize" 
+              <button 
+                @click="toggle"
                 :class="[
-                  'shrink-0',
-                  isActive ? 'text-primary' : 'text-neutral-content'
+                  'flex items-center justify-center text-sm rounded-md w-10 h-10 mx-auto',
+                  'hover:bg-neutral/50 transition-colors cursor-pointer', 
+                  isActive ? 'bg-neutral/50 font-medium' : ''
                 ]"
-              />
-            </button>
+              >
+                <component 
+                  v-if="icon" 
+                  :is="icon" 
+                  :size="iconSize" 
+                  :class="[
+                    'shrink-0',
+                    isActive ? 'text-primary' : 'text-neutral-content'
+                  ]"
+                />
+              </button>
+            </Tooltip>
           </template>
           
           <div class="py-1">
@@ -139,6 +178,7 @@ import { ref, computed, useSlots, inject, provide } from 'vue'
 import { useRoute } from 'vue-router'
 import type { Component } from 'vue'
 import { DropdownMenu, DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { Tooltip } from '@/components/ui/tooltip'
 
 interface Props {
   title: string
