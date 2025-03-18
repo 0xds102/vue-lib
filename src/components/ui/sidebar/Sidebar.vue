@@ -4,14 +4,14 @@
     <aside
       data-sidebar
       :class="[
-        'h-screen fixed inset-y-0 left-0 z-40 flex flex-col bg-white border-r border-slate-200',
+        'h-screen fixed inset-y-0 left-0 z-40 flex flex-col bg-base-100 border-r border-border',
         'transition-all duration-300 ease-in-out',
         className
       ]"
       :style="{ width: collapsed ? '72px' : width }"
     >
       <!-- Organization header with transition -->
-      <div class="flex items-center p-4 border-b border-slate-200 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="flex items-center p-4 border-b border-border overflow-hidden transition-all duration-300 ease-in-out">
         <slot name="header" :collapsed="collapsed"></slot>
       </div>
 
@@ -21,25 +21,25 @@
       </div>
 
       <!-- User profile footer with transition -->
-      <div class="p-4 border-t border-slate-200 overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="p-4 border-t border-border overflow-hidden transition-all duration-300 ease-in-out">
         <slot name="footer" :collapsed="collapsed"></slot>
       </div>
       
       <!-- Repositioned toggle button -->
       <button 
-  v-if="showCollapseToggle"
-  @click="toggleCollapse" 
-  class="absolute z-50 flex items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm p-1.5 text-slate-700 hover:bg-slate-50"
-  :style="{
-    top: '48px', /* Adjusted from 24px to 48px for better positioning */
-    right: '-14px',
-    height: '28px',
-    width: '28px',
-    transform: collapsed ? 'rotate(0deg)' : 'rotate(180deg)'
-  }"
->
-  <PhCaretRight :size="16" />
-</button>
+        v-if="showCollapseToggle"
+        @click="toggleCollapse" 
+        class="absolute z-50 flex items-center justify-center rounded-full bg-base-100 border border-border shadow-sm p-1.5 text-base-content hover:bg-neutral/50"
+        :style="{
+          top: '48px', /* Adjusted from 24px to 48px for better positioning */
+          right: '-14px',
+          height: '28px',
+          width: '28px',
+          transform: collapsed ? 'rotate(0deg)' : 'rotate(180deg)'
+        }"
+      >
+        <PhCaretRight :size="16" />
+      </button>
     </aside>
   </div>
 </template>

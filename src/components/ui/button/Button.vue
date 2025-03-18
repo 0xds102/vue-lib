@@ -9,7 +9,7 @@
 import { buttonVariants } from '.'
 
 interface Props {
-  variant?: 'default' | 'primary' | 'danger' | 'outline' | 'secondary' | 'ghost' | 'link'
+  variant?: 'default' | 'primary' | 'error' | 'outline' | 'secondary' | 'ghost' | 'link'
   size?: 'default' | 'sm' | 'lg' | 'icon'
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'

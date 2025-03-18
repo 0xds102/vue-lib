@@ -48,7 +48,7 @@ const weeks = computed(() => {
 </script>
 
 <template>
-  <div class="inline-block p-3 bg-white rounded-lg shadow">
+  <div class="inline-block p-3 bg-white rounded-lg shadow-sm">
     <CalendarHeader
       v-model="currentMonth"
     />

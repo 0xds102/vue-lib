@@ -4,7 +4,7 @@
     <template #header="{ collapsed }">
       <div class="flex items-center gap-3" :class="{ 'justify-center w-full': collapsed }">
         <!-- Logo - always visible -->
-        <div class="h-8 w-8 rounded bg-blue-600 flex-shrink-0 flex items-center justify-center text-white">0x</div>
+        <div class="h-8 w-8 rounded bg-primary shrink-0 flex items-center justify-center text-base-100">0x</div>
         
         <!-- Organization text - only visible when expanded -->
         <div v-if="!collapsed" class="min-w-0">
@@ -46,7 +46,7 @@
           :class="{ 'justify-center': collapsed, 'w-full': !collapsed }"
         >
           <!-- Avatar - always visible -->
-          <div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
+          <div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden shrink-0">
             <div class="h-full w-full flex items-center justify-center">0x</div>
           </div>
           

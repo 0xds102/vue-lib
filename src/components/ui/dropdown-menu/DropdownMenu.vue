@@ -17,7 +17,7 @@
             v-if="isOpen" 
             ref="menuRef"
             @click.stop
-            class="fixed rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-[100] w-56 py-1 border border-slate-200"
+            class="fixed rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden z-100 w-56 py-1 border border-slate-200"
             :style="menuStyle"
           >
             <slot></slot>

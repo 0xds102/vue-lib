@@ -1,6 +1,6 @@
 <template>
   <Transition>
-    <div v-if="dialogContext.isOpen" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+    <div v-if="dialogContext.isOpen" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs"
       @click="dialogContext.close">
       <div
         class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-4 shadow-lg rounded-lg"
