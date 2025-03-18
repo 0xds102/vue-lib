@@ -25,4 +25,4 @@ const props = withDefaults(defineProps<{
     >
       <slot />
     </span>
-  </template>
+</template>
