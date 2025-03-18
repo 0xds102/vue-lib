@@ -37,7 +37,7 @@
     <template #footer="{ collapsed }">
   <div class="flex items-center gap-3" :class="{ 'justify-center': collapsed }">
     <!-- Avatar with dropdown menu -->
-    <DropdownMenu position="right" align="start" :offset="collapsed ? 4 : 8">
+    <DropdownMenu position="right" :boundary="{ left: sidebarCollapsed ? 72 : 260 }">
       <template #trigger="{ toggle }">
         <!-- Entire user section is now clickable -->
         <div 
@@ -46,8 +46,8 @@
           :class="{ 'justify-center': collapsed, 'w-full': !collapsed }"
         >
           <!-- Avatar - always visible -->
-          <div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden shrink-0">
-            <div class="h-full w-full flex items-center justify-center">0x</div>
+          <div class="h-8 w-8 rounded-full bg-primary overflow-hidden shrink-0">
+            <div class="h-full w-full flex items-center text-base-100 justify-center">0x</div>
           </div>
           
           <!-- User info - only visible when expanded -->

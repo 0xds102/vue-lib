@@ -1,13 +1,13 @@
 <template>
-    <a
-      :href="href"
-      class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 cursor-pointer"
-      :class="{ 'bg-slate-100 text-slate-900': active }"
-      @click="$emit('click', $event)"
-    >
-      <slot></slot>
-    </a>
-  </template>
+  <a
+    :href="href"
+    class="block px-4 py-2 text-sm text-base-content hover:bg-neutral/50 hover:text-base-content cursor-pointer"
+    :class="{ 'bg-neutral/50 text-base-content': active }"
+    @click="$emit('click', $event)"
+  >
+    <slot></slot>
+  </a>
+</template>
   
   <script setup lang="ts">
   interface Props {
