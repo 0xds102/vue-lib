@@ -33,67 +33,69 @@
   
       <!-- Footer with responsive layout -->
       <template #footer="{ collapsed }">
-        <div class="flex items-center gap-3" :class="{ 'justify-center': collapsed }">
-          <!-- Avatar with dropdown menu -->
-          <DropdownMenu position="right" :boundary="{ left: sidebarCollapsed ? 72 : 260 }">
-            <template #trigger="{ toggle }">
-              <!-- Entire user section is now clickable -->
-              <div 
-                @click="(e) => toggle(e)" 
-                class="flex items-center gap-3 p-1 rounded-md cursor-pointer hover:bg-slate-100 transition-colors"
-                :class="{ 'justify-center': collapsed, 'w-full': !collapsed }"
-              >
-                <!-- Avatar - always visible -->
-                <div class="h-8 w-8 rounded-full bg-primary overflow-hidden shrink-0">
-                  <div class="h-full w-full flex items-center text-base-100 justify-center">0x</div>
-                </div>
-                
-                <!-- User info - only visible when expanded -->
-                <div v-if="!collapsed" class="min-w-0">
-                  <div class="text-sm font-medium truncate">0xtest</div>
-                  <div class="text-xs text-slate-500 truncate">test@example.com</div>
-                </div>
-              </div>
-            </template>
-            
-            <!-- User profile section at the top of dropdown -->
-            <div class="px-4 py-3 border-b border-border">
-              <div class="flex items-center gap-3">
-                <div class="h-8 w-8 rounded-full bg-primary overflow-hidden shrink-0">
-                  <div class="h-full w-full flex items-center text-base-100 justify-center">0x</div>
-                </div>
-                <div>
-                  <div class="text-sm font-medium">0xtest</div>
-                  <div class="text-xs text-neutral-content">m@example.com</div>
-                </div>
-              </div>
-            </div>
-            
-            <DropdownMenuItem href="/account">
-              <div class="flex items-center gap-2">
-                <PhUserCircle :size="18" class="text-base-content" />
-                <span>Account</span>
-              </div>
-            </DropdownMenuItem>
-  
-            <DropdownMenuItem href="/settings">
-              <div class="flex items-center gap-2">
-                <PhGear :size="18" class="text-base-content" />
-                <span>Settings</span>
-              </div>
-            </DropdownMenuItem>
-            
-            <div class="border-t border-border my-1"></div>
-            
-            <DropdownMenuItem @click="logout" class="group">
-              <div class="flex items-center gap-2">
-                <PhSignOut :size="18" class="text-base-content group-hover:text-error transition-colors" />
-                <span class="group-hover:text-error transition-colors">Log out</span>
-              </div>
-            </DropdownMenuItem>
-          </DropdownMenu>
+  <div class="flex items-center gap-3" :class="{ 'justify-center': collapsed }">
+    <!-- Avatar with dropdown menu -->
+    <DropdownMenu position="right" :boundary="{ left: sidebarCollapsed ? 72 : 260 }">
+      <template #trigger="{ toggle }">
+        <!-- Entire user section is now clickable -->
+        <div 
+          @click="(e) => toggle(e)" 
+          class="flex items-center gap-3 p-1 rounded-md cursor-pointer hover:bg-slate-100 transition-colors"
+          :class="{ 'justify-center': collapsed, 'w-full': !collapsed }"
+        >
+          <!-- Avatar - always visible -->
+          <div class="h-8 w-8 rounded-full bg-primary overflow-hidden shrink-0">
+            <div class="h-full w-full flex items-center text-base-100 justify-center">0x</div>
+          </div>
+          
+          <!-- User info - only visible when expanded -->
+          <div v-if="!collapsed" class="min-w-0">
+            <div class="text-sm font-medium truncate">0xtest</div>
+            <div class="text-xs text-slate-500 truncate">test@example.com</div>
+          </div>
         </div>
       </template>
+      
+      <!-- User profile section at the top of dropdown -->
+      <div class="px-4 py-3 border-b border-border mb-1">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-full bg-primary overflow-hidden shrink-0">
+            <div class="h-full w-full flex items-center text-base-100 justify-center">0x</div>
+          </div>
+          <div>
+            <div class="text-sm font-medium">0xtest</div>
+            <div class="text-xs text-neutral-content">m@example.com</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="py-1">
+        <DropdownMenuItem href="/account">
+          <div class="flex items-center gap-2">
+            <PhUserCircle :size="18" class="text-base-content" />
+            <span>Account</span>
+          </div>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem href="/settings">
+          <div class="flex items-center gap-2">
+            <PhGear :size="18" class="text-base-content" />
+            <span>Settings</span>
+          </div>
+        </DropdownMenuItem>
+        
+        <div class="border-t border-border my-1"></div>
+        
+        <DropdownMenuItem @click="logout" class="group">
+          <div class="flex items-center gap-2">
+            <PhSignOut :size="18" class="text-base-content group-hover:text-error transition-colors" />
+            <span class="group-hover:text-error transition-colors">Log out</span>
+          </div>
+        </DropdownMenuItem>
+      </div>
+    </DropdownMenu>
+  </div>
+</template>
     </Sidebar>
   </template>
   
