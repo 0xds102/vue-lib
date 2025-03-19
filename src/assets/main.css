@@ -11,17 +11,17 @@
   --color-base-content: oklch(0.2 0 0);      /* Main content color */
   
   /* Main theme colors */
-  --color-primary: oklch(0.55 0.2 260);      /* Primary color */
+  --color-primary: oklch(0.541 0.281 293.009);      /* Primary color */
   --color-primary-content: oklch(1 0 0);     /* Text on primary */
   
-  --color-secondary: oklch(0.7 0.12 180);    /* Secondary color */
+  --color-secondary: oklch(69% 0.17 162.48);    /* Secondary color */
   --color-secondary-content: oklch(0.1 0 0); /* Text on secondary */
   
-  --color-accent: oklch(0.75 0.18 70);       /* Accent color */
+  --color-accent: oklch(0.702 0.183 293.541);       /* Accent color */
   --color-accent-content: oklch(0.1 0 0);    /* Text on accent */
   
   /* Neutral/muted colors */
-  --color-neutral: oklch(0.87 0.01 260);     /* Neutral background */
+  --color-neutral: oklch(0.95 0 0);       /* Neutral background */
   --color-neutral-content: oklch(0.3 0.02 260); /* Text on neutral */
   
   /* State colors */
@@ -39,7 +39,7 @@
   
   /* UI element specific */
   --color-border: oklch(0.85 0.01 260);      /* Border color */
-  --color-ring: oklch(0.55 0.2 260 / 0.3);   /* Focus ring color */
+  --color-ring: oklch(87% 0.01 258.338);   /* Focus ring color */
   
   /* Maintain black and white */
   --color-black: oklch(0 0 0);

@@ -3,11 +3,11 @@
     <div v-if="dialogContext.isOpen" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs"
       @click="dialogContext.close">
       <div
-        class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-4 shadow-lg rounded-lg"
+        class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-border bg-base-100 p-4 rounded-lg"
         @click.stop>
         <div class="flex flex-col space-y-2 text-center sm:text-left">
-          <h2 class="text-lg font-semibold">{{ title }}</h2>
-          <p class="text-sm text-slate-700">
+          <h2 class="text-lg font-semibold text-base-content">{{ title }}</h2>
+          <p class="text-sm text-neutral-content">
             <slot />
           </p>
         </div>
@@ -40,8 +40,8 @@ interface Props {
   showAction?: boolean
   cancelText?: string
   actionText?: string
-  cancelVariant?: 'default' | 'danger' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
-  actionVariant?: 'default' | 'danger' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary'
+  cancelVariant?: 'default' | 'primary' | 'error' | 'outline' | 'secondary' | 'ghost' | 'link' | 'accent'
+  actionVariant?: 'default' | 'primary' | 'error' | 'outline' | 'secondary' | 'ghost' | 'link' | 'accent'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -50,7 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
   showAction: true,
   cancelText: 'Cancel',
   actionText: 'Continue',
-  cancelVariant: 'outline',
+  cancelVariant: 'default',
   actionVariant: 'primary'
 })
 

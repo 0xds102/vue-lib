@@ -20,7 +20,9 @@
       
       <SidebarItem title="Test1" :icon="PhGameController">
         <template #children>
-          <SidebarItem title="Hey" collapsible />
+          <SidebarItem title="Test1.1" collapsible />
+          <SidebarItem title="Test1.2" collapsible />
+          <SidebarItem title="Test1.3" collapsible />
         </template>
       </SidebarItem>
       
