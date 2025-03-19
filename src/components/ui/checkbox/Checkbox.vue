@@ -57,10 +57,10 @@
       <div v-if="label || $slots.default" class="grid gap-1">
         <label 
           :for="id" 
-          class="cursor-pointer select-none text-base-content"
           :class="[
             labelSizeClasses,
-            disabled ? 'cursor-not-allowed opacity-70' : '',
+            'select-none text-base-content',
+            disabled ? 'cursor-not-allowed opacity-70' : 'cursor-pointer',
             required ? 'after:content-[\'*\'] after:text-error after:ml-0.5' : ''
           ]"
         >
