@@ -4,7 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter component-lib dev",
-    "save-components": "pnpm --filter component-lib save-components"
+    "save-components": "pnpm --filter component-lib save-components",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "engines": {
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm", 
+    "pnpm": ">= 9.0.0"
   },
   "packageManager": "pnpm@9.12.1"
 }
