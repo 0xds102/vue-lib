@@ -1,18 +1,27 @@
-# component-lib
+# DevUI Component Library Playground
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the development and testing environment for the DevUI component library.
 
-## Recommended IDE Setup
+## Development Workflow
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+We use a specific workflow for component development:
 
-## Type Support for `.vue` Imports in TS
+### Component Development
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+1. Develop components in the `packages/playground/src/components/ui` directory
+2. Test and showcase them in playground views
+3. Use the save-components script to copy finished components to the components package
 
-## Customize configuration
+```sh
+# Copy components from playground to components package
+pnpm run save-components
+```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+This workflow ensures proper CSS processing with Tailwind v4 during development, while maintaining a clean component repository for distribution.
+
+### Why This Approach
+
+Due to the way Tailwind v4 processes CSS classes, we develop components directly in the playground where Tailwind can "see" them. Once components are ready, we copy them to the components package which serves as our source of truth for the CLI and distribution.
 
 ## Project Setup
 
