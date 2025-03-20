@@ -104,8 +104,8 @@
   
   <script setup>
   import { ref } from 'vue'
-import { Sidebar, SidebarItem } from '@components/sidebar'
-import { DropdownMenu, DropdownMenuItem } from '@components/dropdown-menu'
+import { Sidebar, SidebarItem } from '../components/ui/sidebar'
+import { DropdownMenu, DropdownMenuItem } from '../components/ui/dropdown-menu'
   import { 
     PhSquaresFour,
     PhGameController, 
