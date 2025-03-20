@@ -1,0 +1,6 @@
+{
+    "name": "@devui/components",
+    "version": "0.0.1",
+    "description": "Vue UI Component Library Source Repository",
+    "private": true
+  }
