@@ -4,12 +4,18 @@ import path from 'path';
 import chalk from 'chalk';
 import ora from 'ora';
 import { fileURLToPath } from 'url';
-import { getAvailableComponents, ensureDirectory } from '../utils.js';
+import { getAvailableComponents, ensureDirectory, fetchComponentFromGitHub } from '../utils.js';
 import { Command } from 'commander';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const componentsDir = path.resolve(__dirname, '../../../components/src');
+// Remove local path resolution
+// const componentsDir = path.resolve(__dirname, '../../../components/src');
+
+// GitHub repository details
+const REPO_OWNER = '0xds102';
+const REPO_NAME = 'vue-lib';
+const COMPONENTS_PATH = 'packages/components/src';
 
 export default function(program: Command): void {
   program
@@ -17,8 +23,13 @@ export default function(program: Command): void {
     .description('Add components to your project')
     .action(async () => {
       try {
-        // Get available components
-        const components = await getAvailableComponents(componentsDir);
+        // Get spinner for components fetching
+        const listSpinner = ora('Fetching available components...').start();
+        
+        // Get available components from GitHub
+        const components = await getAvailableComponents(REPO_OWNER, REPO_NAME, COMPONENTS_PATH);
+        
+        listSpinner.succeed('Found components');
         
         if (components.length === 0) {
           console.log(chalk.red('No components found!'));
@@ -31,7 +42,7 @@ export default function(program: Command): void {
             type: 'checkbox',
             name: 'selectedComponents',
             message: 'Select components to add',
-            choices: components.map(c => ({ name: c, value: c }))
+            choices: components.map((c: string) => ({ name: c, value: c }))
           }
         ]);
         
@@ -55,14 +66,18 @@ export default function(program: Command): void {
           const spinner = ora(`Installing ${component}...`).start();
           
           try {
-            const sourceDir = path.join(componentsDir, component);
             const destDir = path.join(process.cwd(), targetDir, component);
             
             // Ensure target directory exists
             await ensureDirectory(path.join(process.cwd(), targetDir));
             
-            // Copy component files
-            await fs.copy(sourceDir, destDir);
+            // Fetch and save component from GitHub
+            await fetchComponentFromGitHub(
+              REPO_OWNER,
+              REPO_NAME,
+              `${COMPONENTS_PATH}/${component}`,
+              destDir
+            );
             
             spinner.succeed(`Installed ${chalk.green(component)}`);
           } catch (error) {

@@ -21,7 +21,8 @@
     "inquirer": "^9.2.16",
     "chalk": "^5.3.0",
     "ora": "^8.0.1",
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
