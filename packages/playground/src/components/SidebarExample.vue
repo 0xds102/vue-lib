@@ -8,31 +8,27 @@
           class="ml-3 overflow-hidden transition-opacity duration-300"
           :class="collapsed ? 'opacity-0 w-0' : 'opacity-100 w-auto'"
         >
-          <div class="text-sm font-medium whitespace-nowrap">Test Dao</div>
+          <div class="text-sm font-medium whitespace-nowrap">DevUi</div>
         </div>
       </template>
       
       <!-- Regular sidebar items -->
       <SidebarItem title="Dashboard" :icon="PhSquaresFour" href="/" />
-      <SidebarItem title="Components" :icon="PhCirclesThree" href="/components" />
       
-      <SidebarItem title="Options 1" isSection />
+      <SidebarItem title="Examples" isSection />
       
-      <SidebarItem title="Test1" :icon="PhGameController">
+      <SidebarItem title="Components" :icon="PhGameController">
         <template #children>
-          <SidebarItem title="Test1.1" collapsible />
-          <SidebarItem title="Test1.2" collapsible />
-          <SidebarItem title="Test1.3" collapsible />
+          <SidebarItem title="Button" href="/components/button" collapsible />
+          <SidebarItem title="Badge" href="/components/badge" collapsible />
         </template>
       </SidebarItem>
       
       <SidebarItem title="Test2" :icon="PhCube" />
-      <SidebarItem title="Test3" :icon="PhBook" />
     
-      <SidebarItem title="Options 2" isSection />
-      <SidebarItem title="Documentation" :icon="PhBook" href="/docs" />
-      <SidebarItem title="Test4" :icon="PhPaintBrush" />
-      <SidebarItem title="Test5" :icon="PhChartLine" />
+      <SidebarItem title="Test" isSection />
+      <SidebarItem title="Docs" :icon="PhBook" href="/docs" />
+      <SidebarItem title="Dev" :icon="PhPaintBrush" />
   
       <!-- Footer with responsive layout -->
       <template #footer="{ collapsed }">

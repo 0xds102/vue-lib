@@ -11,10 +11,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/components',
-      name: 'components',
-      // Lazy load the components view
-      component: () => import('../views/ComponentsView.vue')
+      path: '/components/button',
+      name: 'button',
+      component: () => import('../views/ButtonView.vue')
+    },
+    {
+      path: '/components/badge',
+      name: 'badge',
+      component: () => import('../views/BadgeView.vue')
     }
   ]
 })

@@ -1,11 +1,11 @@
 <template>
   <aside data-sidebar class="relative" :class="[
-    'h-screen flex-shrink-0 flex flex-col bg-base-100 border-r border-border',
+    'h-screen flex-shrink-0 flex flex-col bg-base-100 border-r border-dashed border-border',
     'transition-[width] duration-300 ease-in-out',
     className
   ]" :style="{ width: collapsed ? '72px' : width }">
     <!-- Header -->
-    <div class="flex items-center p-4 border-b border-border overflow-hidden">
+    <div class="flex items-center p-4 border-b border-dashed border-border overflow-hidden">
       <div class="w-full flex" :class="{ 'justify-center': collapsed, 'justify-start': !collapsed }">
         <!-- For collapsed state: center the logo -->
         <div v-if="collapsed" class="h-8 w-8">
@@ -27,13 +27,13 @@
     </div>
 
     <!-- User profile footer with transition -->
-    <div class="p-4 border-t border-border overflow-hidden transition-all duration-300 ease-in-out">
+    <div class="p-4 border-t border-dashed border-border overflow-hidden transition-all duration-300 ease-in-out">
       <slot name="footer" :collapsed="collapsed"></slot>
     </div>
 
     <!-- Repositioned toggle button -->
     <button v-if="showCollapseToggle" @click="toggleCollapse"
-      class="absolute z-50 flex items-center justify-center rounded-full bg-base-100 border border-border shadow-sm p-1.5 text-base-content hover:border-primary cursor-pointer"
+      class="absolute z-50 flex items-center justify-center rounded-full bg-base-100 border border-dashed border-border shadow-sm p-1.5 text-base-content hover:border-primary cursor-pointer"
       :style="{
         top: '48px',
         right: '-14px',

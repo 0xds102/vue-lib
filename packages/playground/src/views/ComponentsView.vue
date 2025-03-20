@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto py-8 px-4 flex flex-col items-center justify-center min-h-screen">
+  <div>
     <!-- Buttons -->
-    <section class="max-w-4xl w-full">
+    <section class="mb-8">
       <h2 class="text-2xl font-bold mb-4">Buttons</h2>
       <div class="space-y-4">
         <div>
@@ -21,7 +21,7 @@
     </section>
     
     <!-- Badges -->
-    <section class="max-w-4xl w-full mt-8">
+    <section class="mt-8">
       <h2 class="text-2xl font-bold mb-4">Badges</h2>
       <div class="flex flex-wrap gap-3">
         <Badge>Default</Badge>
